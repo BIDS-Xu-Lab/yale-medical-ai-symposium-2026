@@ -260,9 +260,9 @@ a { text-decoration: none; color: inherit; }
   inset: 0;
   background: linear-gradient(
     160deg,
-    rgba(10, 22, 40, 0.88) 0%,
-    rgba(13, 36, 68, 0.82) 40%,
-    rgba(10, 22, 40, 0.92) 100%
+    rgba(10, 22, 40, 0.40) 0%,
+    rgba(13, 36, 68, 0.52) 40%,
+    rgba(10, 22, 40, 0.62) 100%
   );
   pointer-events: none;
 }
