@@ -76,3 +76,19 @@
 
   sections.forEach(s => io.observe(s));
 })();
+
+/* ── Hero background video speed ─────────────────────────── */
+(function () {
+  const heroVideo = document.querySelector('.hero-bg-video');
+  if (!heroVideo) return;
+
+  const setHalfSpeed = () => {
+    heroVideo.playbackRate = 0.85;
+  };
+
+  if (heroVideo.readyState >= 1) {
+    setHalfSpeed();
+  } else {
+    heroVideo.addEventListener('loadedmetadata', setHalfSpeed, { once: true });
+  }
+})();
