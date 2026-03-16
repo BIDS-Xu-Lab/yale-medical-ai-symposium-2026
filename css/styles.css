@@ -675,6 +675,12 @@ a { text-decoration: none; color: inherit; }
   text-align: center;
 }
 
+.agenda-speakers-type {
+  font-weight: 500;
+  padding-bottom: 0;
+  border-bottom: 2px solid var(--text-dark);
+}
+
 .agenda-heading {
   font-size: clamp(1.8rem, 3.5vw, 3rem);
   font-weight: 800;
