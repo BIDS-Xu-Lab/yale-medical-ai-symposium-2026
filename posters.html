@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Accepted Posters — 2026 Yale Medical AI Symposium</title>
+  <meta name="description" content="Accepted posters for the 2026 Yale Medical AI Symposium." />
+  <link rel="icon" type="image/svg+xml" href="assets/images/icons/favicon-med-ai.svg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/styles.css" />
+
+  <style>
+    /* ── Poster Page Layout ──────────────────────────────────── */
+    .posters-hero {
+      background: linear-gradient(160deg, #0d2444 0%, #091830 60%, #071020 100%);
+      padding: 6rem 4rem 4rem;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .posters-hero::before {
+      content: '';
+      position: absolute;
+      top: -40%;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 700px;
+      height: 700px;
+      background: radial-gradient(circle, rgba(0,242,255,0.06) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .posters-hero-inner {
+      position: relative;
+      z-index: 1;
+      max-width: 700px;
+      margin: 0 auto;
+    }
+    .posters-hero-title {
+      font-size: clamp(2rem, 5vw, 3.4rem);
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      margin-bottom: 1rem;
+      background: linear-gradient(135deg, #ffffff 30%, var(--cyan) 80%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .posters-hero-sub {
+      font-size: 0.97rem;
+      color: rgba(255,255,255,0.65);
+      line-height: 1.7;
+    }
+
+    /* ── Session Section ─────────────────────────────────────── */
+    .poster-session {
+      background: linear-gradient(160deg, var(--section-light-start), var(--section-light-end));
+      padding: 5rem 4rem;
+    }
+    .poster-session:nth-child(even) {
+      background: linear-gradient(160deg, var(--section-alt-start), var(--section-alt-end));
+    }
+
+    .poster-session-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .poster-session-header {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 1.5rem;
+      margin-bottom: 2.5rem;
+      flex-wrap: wrap;
+    }
+
+    .poster-session-left {}
+
+    .poster-session-title {
+      font-size: clamp(1.5rem, 3vw, 2.2rem);
+      font-weight: 800;
+      color: var(--text-dark);
+      letter-spacing: -0.025em;
+      line-height: 1.2;
+      margin-bottom: 0.6rem;
+    }
+
+    .poster-session-bullets {
+      list-style: none;
+      display: flex;
+      gap: 1.25rem;
+    }
+    .poster-session-bullets li {
+      font-size: 0.82rem;
+      color: var(--text-muted);
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+    .poster-session-bullets li::before {
+      content: '';
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      background: var(--blue-mid);
+      flex-shrink: 0;
+    }
+
+    .poster-session-time {
+      flex-shrink: 0;
+      background: var(--blue-mid);
+      color: var(--white);
+      font-size: 0.8rem;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      padding: 0.55rem 1.1rem;
+      border-radius: 6px;
+      white-space: nowrap;
+    }
+
+    /* ── Poster Grid ─────────────────────────────────────────── */
+    .poster-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.25rem;
+    }
+
+    /* ── Poster Card ─────────────────────────────────────────── */
+    .poster-card {
+      position: relative;
+      background: var(--white);
+      border-radius: 12px;
+      padding: 1.5rem;
+      box-shadow: 0 2px 16px rgba(10,31,68,0.07);
+      border: 1px solid var(--border-light);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+      transition: box-shadow 0.2s, transform 0.2s;
+    }
+    .poster-card:hover {
+      box-shadow: 0 8px 32px rgba(21,101,192,0.13);
+      transform: translateY(-2px);
+    }
+
+    .poster-card-num {
+      position: absolute;
+      top: 0.6rem;
+      right: 1rem;
+      font-size: 3.5rem;
+      font-weight: 800;
+      color: rgba(21,101,192,0.07);
+      line-height: 1;
+      pointer-events: none;
+      user-select: none;
+    }
+
+    .poster-card-title {
+      font-size: 0.9rem;
+      font-weight: 700;
+      color: var(--text-dark);
+      line-height: 1.45;
+      flex: 1;
+      padding-right: 2rem;
+    }
+
+    .poster-card-presenter {
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+    }
+
+    /* ── Responsive ──────────────────────────────────────────── */
+    @media (max-width: 1024px) {
+      .poster-session { padding: 4rem 2.5rem; }
+      .posters-hero { padding: 5rem 2.5rem 3rem; }
+    }
+    @media (max-width: 768px) {
+      .poster-grid { grid-template-columns: repeat(2, 1fr); }
+      .poster-session { padding: 3rem 1.5rem; }
+      .posters-hero { padding: 5rem 1.5rem 3rem; }
+    }
+    @media (max-width: 480px) {
+      .poster-grid { grid-template-columns: 1fr; }
+      .poster-session-bullets { flex-direction: column; gap: 0.4rem; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ══════════════════════════════════════════════════════════
+     NAVIGATION
+══════════════════════════════════════════════════════════ -->
+<nav id="navbar" role="navigation" aria-label="Main navigation">
+  <div class="nav-brand">
+    <img src="assets/images/icons/logo-med-ai.svg" alt="Medical AI Symposium" class="nav-logo-img" />
+    <div class="nav-brand-text">
+      2026 Yale Medical AI Symposium
+    </div>
+  </div>
+
+  <ul class="nav-links" id="nav-links">
+    <li><a href="index.html#overview">About</a></li>
+    <li><a href="index.html#cfp">Call for Posters</a></li>
+    <li><a href="index.html#registration">Agenda</a></li>
+    <li><a href="index.html#committees">Committees</a></li>
+    <li><a href="posters.html" style="color:var(--cyan);">Accepted Posters</a></li>
+  </ul>
+
+  <button class="nav-hamburger" id="nav-hamburger" aria-label="Toggle menu" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- ══════════════════════════════════════════════════════════
+     HERO
+══════════════════════════════════════════════════════════ -->
+<div class="posters-hero">
+  <div class="posters-hero-inner">
+    <h1 class="posters-hero-title">Accepted Posters</h1>
+    <p class="posters-hero-sub">Explore the cutting-edge research and clinical innovations defining the future of AI in medicine.</p>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════════════════════
+     POSTER SESSION 1
+══════════════════════════════════════════════════════════ -->
+<section id="session-1" class="poster-session" aria-label="Poster Session 1">
+  <div class="poster-session-inner">
+
+    <div class="poster-session-header">
+      <div class="poster-session-left">
+        <h2 class="poster-session-title">Poster Session 1 &amp; Lunch</h2>
+        <ul class="poster-session-bullets">
+          <li>Open Seating</li>
+          <li>Poster Discussions &amp; Networking</li>
+        </ul>
+      </div>
+      <div class="poster-session-time">12:15 PM &ndash; 1:30 PM</div>
+    </div>
+
+    <div class="poster-grid">
+
+      <div class="poster-card">
+        <div class="poster-card-num">01</div>
+        <div class="poster-card-title">Continuous-Value Tokenization Improves Medical Foundation Model Performance</div>
+        <div class="poster-card-presenter">Kent Richland</div>
+      </div>
+
+      <div class="poster-card">
+        <div class="poster-card-num">02</div>
+        <div class="poster-card-title">Predicting Renal Cell Carcinoma Outcomes from Clinical Trial Data Using Multimodal Genomic Foundation Models</div>
+        <div class="poster-card-presenter">Shawn Price</div>
+      </div>
+
+      <div class="poster-card">
+        <div class="poster-card-num">03</div>
+        <div class="poster-card-title">NursePT: Evaluating Patient Engagement with a Voice-Enabled AI Assistant in Facial Plastic Surgery</div>
+        <div class="poster-card-presenter">Muhammad Waseem</div>
+      </div>
+
+      <div class="poster-card">
+        <div class="poster-card-num">04</div>
+        <div class="poster-card-title">Building an AI Platform for Intraoperative Neural Analysis: A Validated Pilot in Vascular Care Quality Improvement</div>
+        <div class="poster-card-presenter">Nicolas Mills</div>
+      </div>
+
+      <div class="poster-card">
+        <div class="poster-card-num">05</div>
+        <div class="poster-card-title">Understanding the Role of Uncertainty Quantification in Cancer Mortality Prediction: A Real-World Study</div>
+        <div class="poster-card-presenter">Brandon Dawson</div>
+      </div>
+
+      <div class="poster-card">
+        <div class="poster-card-num">06</div>
+        <div class="poster-card-title">An AI-Guided In Silico Decision Engine for Prioritizing CRISPR/Cas9-Based Cancer Vaccine Targets from Tumor Genomics</div>
+        <div class="poster-card-presenter">Edgar Hamule-Chavez</div>
+      </div>
+
+      <div class="poster-card">
+        <div class="poster-card-num">07</div>
+        <div class="poster-card-title">Urology Copilot: Customizing Large Language Models to Clinical Algorithms for Safer, Evidence-Based Clinical Decision Support</div>
+        <div class="poster-card-presenter">Amy Chau</div>
+      </div>
+
+      <div class="poster-card">
+        <div class="poster-card-num">08</div>
+        <div class="poster-card-title">Decoding mRNA Quality with ctDNA Foundation Model: Quantifying Long-Read vs. Short-Read Sequencing Bias Using Drug-Likelihood Boosting</div>
+        <div class="poster-card-presenter">Xinyu Zhu</div>
+      </div>
+
+      <div class="poster-card">
+        <div class="poster-card-num">09</div>
+        <div class="poster-card-title">Standardizing NF2-Related Schwannomatosis Surveillance Using AI-Based 3D Tumor Segmentation</div>
+        <div class="poster-card-presenter">Kate Schindler</div>
+      </div>
+
+      <div class="poster-card">
+        <div class="poster-card-num">10</div>
+        <div class="poster-card-title">Impact of an Ambient AI Scribe on Resident Physician Experience and Documentation Burden: A Pre-Post Quality Improvement Study</div>
+        <div class="poster-card-presenter">Yannis Doulos</div>
+      </div>
+
+      <div class="poster-card">
+        <div class="poster-card-num">11</div>
+        <div class="poster-card-title">Large Language Models and Counseling for Therapy 13 and 14</div>
+        <div class="poster-card-presenter">Albert Rutherford</div>
+      </div>
+
+      <div class="poster-card">
+        <div class="poster-card-num">12</div>
+        <div class="poster-card-title">AI-Driven Estimation of Patient Out-of-Pocket Costs</div>
+        <div class="poster-card-presenter">Tianhao Wu</div>
+      </div>
+
+      <div class="poster-card">
+        <div class="poster-card-num">13</div>
+        <div class="poster-card-title">When Domain-Specific Diseases in Large Language Models: Diagnosing and Adapting Learned Representations via Modularized Transformer Decoding</div>
+        <div class="poster-card-presenter">Jianong Das</div>
+      </div>
+
+      <div class="poster-card">
+        <div class="poster-card-num">14</div>
+        <div class="poster-card-title">Application of a Large Language Model to Infer Ischemic Stroke Etiology and Elucidating its Diagnostic Reasoning</div>
+        <div class="poster-card-presenter">Richa Sharma</div>
+      </div>
+
+      <div class="poster-card">
+        <div class="poster-card-num">15</div>
+        <div class="poster-card-title">ChatGPT vs. Physician: Quality and Wellness Calibration of Certifications of Terminal Illness</div>
+        <div class="poster-card-presenter">Alex Choi</div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════════════════
+     POSTER SESSION 2
+══════════════════════════════════════════════════════════ -->
+<section id="session-2" class="poster-session" aria-label="Poster Session 2">
+  <div class="poster-session-inner">
+
+    <div class="poster-session-header">
+      <div class="poster-session-left">
+        <h2 class="poster-session-title">Poster Session 2 &amp; Networking Reception</h2>
+        <ul class="poster-session-bullets">
+          <li>Light Refreshments Provided</li>
+          <li>Poster Discussions &amp; Networking</li>
+        </ul>
+      </div>
+      <div class="poster-session-time">3:35 PM &ndash; 5:00 PM</div>
+    </div>
+
+    <div class="poster-grid">
+
+      <div class="poster-card">
+        <div class="poster-card-num">01</div>
+        <div class="poster-card-title">Leveraging AI for Digital Phenotyping: Anticipating Lapses in Exercise for Adults with Type 1 Diabetes</div>
+        <div class="poster-card-presenter">Garrett Lam</div>
+      </div>
+
+      <div class="poster-card">
+        <div class="poster-card-num">02</div>
+        <div class="poster-card-title">Implementation of an Opioid Use Disorder (OUD) Machine-Learning Classifier in Real-Time Clinical Workflow for the ADAPT Clinical Trial</div>
+        <div class="poster-card-presenter">Yuan Li</div>
+      </div>
+
+      <div class="poster-card">
+        <div class="poster-card-num">03</div>
+        <div class="poster-card-title">Power Agent: A Collaborative Multi-Agent Framework for Causal Power Analysis and Sample Size Determination</div>
+        <div class="poster-card-presenter">Yizeng Zhao</div>
+      </div>
+
+      <div class="poster-card">
+        <div class="poster-card-num">04</div>
+        <div class="poster-card-title">Artificial Intelligence in Medicine: What Works, What Hinders, and Why It Matters</div>
+        <div class="poster-card-presenter">Raphaeli Galahari</div>
+      </div>
+
+      <div class="poster-card">
+        <div class="poster-card-num">05</div>
+        <div class="poster-card-title">Automating Neurological Scoring for Parkinson's Disease Patients using LLM-Based Analysis of Patient-Clinician Interactions</div>
+        <div class="poster-card-presenter">Vashan Athena</div>
+      </div>
+
+      <div class="poster-card">
+        <div class="poster-card-num">06</div>
+        <div class="poster-card-title">Physics-Informed Neural Networks Reveal Stability Thresholds Underlying Mechanistic Resistance in Glioblastoma</div>
+        <div class="poster-card-presenter">Ryan Kumar</div>
+      </div>
+
+      <div class="poster-card">
+        <div class="poster-card-num">07</div>
+        <div class="poster-card-title">Single-Lead ECG-App from Wristbands as a Device-Agnostic Digital Biomarker of Cardiovascular Risk: Multisite and Prospective Validation</div>
+        <div class="poster-card-presenter">Goanna Ahmed</div>
+      </div>
+
+      <div class="poster-card">
+        <div class="poster-card-num">08</div>
+        <div class="poster-card-title">A Patient-Specific Digital Twin for Adaptive Radiotherapy of Near-Small Cell Lung Cancer</div>
+        <div class="poster-card-presenter">Amy Tisg</div>
+      </div>
+
+      <div class="poster-card">
+        <div class="poster-card-num">09</div>
+        <div class="poster-card-title">AI-Guided Design and Prioritization of Tandem Neoantigen Sequences for Melanoma CDM Cancer Vaccines</div>
+        <div class="poster-card-presenter">Oscar Ramirez-Gomez</div>
+      </div>
+
+      <div class="poster-card">
+        <div class="poster-card-num">10</div>
+        <div class="poster-card-title">Optimizing Artificial Intelligence Analysis of Social Determinants of Health from Neural Networks Tools to Enable Risk Stratification and Outcomes</div>
+        <div class="poster-card-presenter">Bane Smout</div>
+      </div>
+
+      <div class="poster-card">
+        <div class="poster-card-num">11</div>
+        <div class="poster-card-title">Who Lives, Who Dies, Who Tells Your Story: Operationalizing Sociohistorical Connectivity in NLP for Structural Reviews in Major Elective Surgery</div>
+        <div class="poster-card-presenter">Angelina Dingas</div>
+      </div>
+
+      <div class="poster-card">
+        <div class="poster-card-num">12</div>
+        <div class="poster-card-title">Evaluation of an Autonomous AI System for Multimodal Diabetic Retinopathy Screening across a Community University-Qualified Health Center</div>
+        <div class="poster-card-presenter">Julia Yu</div>
+      </div>
+
+      <div class="poster-card">
+        <div class="poster-card-num">13</div>
+        <div class="poster-card-title">Artificial Intelligence-Assisted Cognitive Medial Modules with Ketamine for Treatment-Resistant Depression</div>
+        <div class="poster-card-presenter">Morgan Hardy</div>
+      </div>
+
+      <div class="poster-card">
+        <div class="poster-card-num">14</div>
+        <div class="poster-card-title">Identifying Pancreatic Cysts and their Malignant Potential in Electronic Medical Records Using NLP and LLM</div>
+        <div class="poster-card-presenter">Tyrerus</div>
+      </div>
+
+      <div class="poster-card">
+        <div class="poster-card-num">15</div>
+        <div class="poster-card-title">Automated Scoring and Automated Categorization of Long Feud Clinical Interviews Using AI and Large Language Models</div>
+        <div class="poster-card-presenter">Walter Matic</div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════════════════
+     FOOTER
+══════════════════════════════════════════════════════════ -->
+<footer>
+  <div class="footer-brand">
+    <strong>2026 Yale Medical AI Symposium</strong>
+  </div>
+  <div class="footer-copy">&copy; 2026 Yale Medical AI Symposium. All rights reserved.</div>
+</footer>
+
+<script>
+  /* Nav scroll */
+  const navbar = document.getElementById('navbar');
+  window.addEventListener('scroll', () => {
+    navbar.classList.toggle('scrolled', window.scrollY > 60);
+  });
+
+  /* Hamburger */
+  const hamburger = document.getElementById('nav-hamburger');
+  const navLinks  = document.getElementById('nav-links');
+  if (hamburger && navLinks) {
+    hamburger.addEventListener('click', () => {
+      const open = navLinks.classList.toggle('open');
+      hamburger.setAttribute('aria-expanded', open);
+    });
+  }
+</script>
+</body>
+</html>
